@@ -17,8 +17,22 @@ f = open("kimi.csv", "rt", encoding="utf-8")
 for sor in f:
     sor = sor.strip().split(";")
     adatok.append(sor)
-    
+
+    adatok[0] = datum
+    adatok[1] = nagydij
+    adatok[2] = helyezes
+    adatok[6] = celbaErt
+    adatok[8] = hibaOka
+
+    if nagydij == "Magyar Nagydíj":
+        print(datum, ":", helyezes, " hely")
+
     sorokszama += 1
-        
+
+for i in adatok:
+    if hibaOka != "" and hibaOka > 1:
+        hibak[i] += 1
+
+
 print("3. feladat: adatsorok száma: ", sorokszama - 1)
-print(adatok)
+print("5. feladat: Hibastatisztika")
